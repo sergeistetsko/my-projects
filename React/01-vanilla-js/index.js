@@ -1,0 +1,5 @@
+function changeButton(id) {
+    const myButton = document.getElementById(id)
+    myButton.innerHTML = 'Hello from Vanilla JS'
+    myButton.className = 'green-btn'
+}
