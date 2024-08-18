@@ -4,13 +4,13 @@ import OtherComponent from './components/OtherComponent.js'
 
 function App() {
   return (
-  <div className="App">
-    <MyComponent />
-    <OtherComponent />
-    <MyComponent />
-    <OtherComponent />
-    <MyComponent />
-  </div>
+    <div className="App">
+      <MyComponent />
+      <OtherComponent />
+      <MyComponent />
+      <OtherComponent />
+      <MyComponent />
+    </div>
   )
 }
 
