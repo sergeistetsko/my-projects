@@ -1,0 +1,18 @@
+/* Универсальный селектор */
+
+* {
+  margin: 0;
+}
+
+img {
+  margin: 25px 0 15px 30px; /* top | right | bottom | left */
+
+  /* или */
+
+  /*
+  margin-top: 25px;
+  margin-right: 0;
+  margin-bottom: 15px;
+  margin-left: 30px;
+  */
+}

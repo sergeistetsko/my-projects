@@ -1,0 +1,15 @@
+.container,
+.container2 {
+  border: 2px solid blue;
+  font-size: 0;
+}
+
+.container img {
+  width: calc(100% / 3);
+}
+
+.container2 p {
+  display: inline-block;
+  width: 25%;
+  font-size: initial;
+}

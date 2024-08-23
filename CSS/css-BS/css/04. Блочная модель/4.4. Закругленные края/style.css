@@ -1,0 +1,9 @@
+img {
+  border-radius: 25px;
+  border: 2px solid green;
+}
+
+.circle {
+  border-radius: 50%; /* 50% от размеров изображения */
+  border: none;
+}
