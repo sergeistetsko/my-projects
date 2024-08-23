@@ -1,3 +1,7 @@
 [data-category="main"] {
   background-color: lightsalmon;
 }
+
+[data-category="second"] {
+  background-color: rgb(199, 74, 25);
+}
