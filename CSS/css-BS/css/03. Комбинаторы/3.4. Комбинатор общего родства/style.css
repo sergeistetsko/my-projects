@@ -1,0 +1,10 @@
+.greet ~ p {
+  background-color: lightgrey;
+}
+
+h2 ~ button {
+  background-color: rgb(90, 10, 188);
+  color: white;
+  margin: 10px;
+}
+

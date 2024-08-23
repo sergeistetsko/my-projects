@@ -1,0 +1,7 @@
+div > p {
+  background-color: cyan;
+}
+
+.main > #paragraph {
+  color: blueviolet;
+}

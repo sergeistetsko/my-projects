@@ -1,0 +1,8 @@
+.greet + p {
+  background-color: burlywood;
+}
+
+h1 + h2 {
+  background-color: rgb(14, 92, 35);
+  color: white;
+}
