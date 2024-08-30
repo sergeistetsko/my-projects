@@ -17,13 +17,18 @@ h1 {
   text-align: center;
   color: #080403;
   background-color: #902127;
-  padding: 10px;
+}
+
+h2 {
+  color: #d7ba96;
+  font-size: 2rem;
 }
 
 div {
   display: flex;
   justify-content: center;
   background-color: #902127;
+  padding: 0 10px;
 }
 
 img {
@@ -49,12 +54,110 @@ a {
   line-height: 1.3;
 }
 
+.submenu-color {
+  color: #902127;
+  font-size: 1.5rem;
+}
+
 li::first-letter {
   font-size: 3rem;
   color: #d7ba96;
 }
 
+.submenu-item::first-letter {
+  font-size: 2rem;
+  color: #902127;
+}
+
+.submenu-item {
+  color: #902127;
+}
+
 a:hover {
   cursor: pointer;
+}
+
+.btn {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 20px;
+  color: #080403;
+  font-size: 2rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+section {
+  color: #080403;
+  background-color: #902127;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.btn::first-letter {
+  font-size: 3rem;
   color: #d7ba96;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery figure {
+  margin: 0;
+  flex-basis: calc(100% / 4 - 10px);
+}
+
+.gallery img {
+  width: 100%;
+  border: 1px solid #d7ba96;
+  padding: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  position: relative;
+  margin-right: 20px;
+}
+
+.menu-item:hover .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #902127;
+  border-radius: 15px;
+  background-color: #080403;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.submenu li {
+  font-size: 2rem;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.submenu li:hover {
+  cursor: pointer;
+  color: #080403;
+  background-color: #d7ba96;
+  border-radius: 15px;
 }
