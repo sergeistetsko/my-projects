@@ -110,7 +110,7 @@ section {
 
 .gallery figure {
   margin: 0;
-  flex-basis: calc(100% / 4 - 10px);
+  flex-basis: calc(100% / 3 - 200px);
 }
 
 .gallery img {
