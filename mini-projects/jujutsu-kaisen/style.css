@@ -9,6 +9,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+
 }
 
 h1 {
@@ -22,13 +23,14 @@ h1 {
 h2 {
   color: #d7ba96;
   font-size: 2rem;
+  padding: 20px 0px;
 }
 
 div {
   display: flex;
   justify-content: center;
   background-color: #902127;
-  padding: 0 10px;
+  padding: 0 170px;
 }
 
 img {
@@ -110,14 +112,19 @@ section {
 
 .gallery figure {
   margin: 0;
-  flex-basis: calc(100% / 3 - 200px);
+  flex-basis: calc(100% /5 - 300px);
 }
 
 .gallery img {
   width: 100%;
+  transition: transform 0.3s ease;
   border: 1px solid #d7ba96;
   padding: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+figure:hover img {
+  transform: scale(2.5);
 }
 
 .menu {
@@ -138,8 +145,8 @@ section {
 .submenu {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: -50%;
+  left: 90%;
   list-style: none;
   padding: 0;
   margin: 0;
