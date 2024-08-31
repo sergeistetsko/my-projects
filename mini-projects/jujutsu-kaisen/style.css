@@ -11,7 +11,8 @@ body {
   font-style: normal;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 2rem;
   text-transform: uppercase;
   text-align: center;
@@ -36,7 +37,7 @@ section {
   text-align: center;
 }
 
-div {
+.header-container {
   display: flex;
   justify-content: center;
   background-color: #902127;
@@ -78,7 +79,8 @@ a:hover {
   cursor: pointer;
 }
 
-.submenu-color, .submenu-item {
+.submenu-color,
+.submenu-item {
   color: #902127;
 }
 
@@ -94,19 +96,18 @@ a:hover {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  justify-content: center;
+  gap: 15px;
 }
 
 .gallery figure {
-  margin: 0;
-  flex-basis: calc(100% / 4 - 100px);
+  flex-basis: calc(100% / 4 - 70px);
 }
 
 .gallery img {
   width: 100%;
+  border-radius: 10px;
   transition: transform 0.4s linear;
-  border: 1px solid #d7ba96;
-  padding: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -157,7 +158,8 @@ a:hover {
 }
 
 @keyframes fadeIn {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
   }
   50% {
@@ -170,5 +172,5 @@ a:hover {
 }
 
 figure img:hover {
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
