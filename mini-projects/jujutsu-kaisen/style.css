@@ -93,7 +93,43 @@ a:hover {
   color: #d7ba96;
 }
 
-.gallery {
+.slider {
+  background-color: #080403;
+  border-radius: 25px;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+}
+
+#show-previous-btn,
+#show-next-btn {
+  font-size: 3rem;
+  background-color: transparent;
+  color:  #902127;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#show-previous-btn {
+  left: 25px;
+}
+
+#show-next-btn {
+  right: 25px;
+}
+
+#slide-img {
+  max-width: 100%;
+  border-radius: 25px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -109,7 +145,7 @@ a:hover {
   border-radius: 10px;
   transition: transform 0.4s linear;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .menu {
   list-style: none;
@@ -171,6 +207,6 @@ a:hover {
   animation: fadeIn 4s linear infinite;
 }
 
-figure img:hover {
+/* figure img:hover {
   transform: scale(1.3);
-}
+} */
