@@ -101,6 +101,7 @@ a:hover {
   background-color: transparent;
   color: #d7ba96;
   border: none;
+  height: 80%;
   cursor: pointer;
   position: absolute;
   top: 50%;
