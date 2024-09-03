@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,9 +41,16 @@
     <section>
       <div class="slider">
         <h2 id="manga">Манга - Магическая битва</h2>
-        <button id="show-previous-btn">&lt;</button>
-        <img id="slide-img" src="your-image-url.jpg" alt="manga-pic" />
-        <button id="show-next-btn">&gt;</button>
+        <div class="slider-elements">
+          <button id="show-previous-btn">&lt;</button>
+          <img id="slide-img" src="your-image-url.jpg" alt="manga-pic" />
+          <button id="show-next-btn">&gt;</button>
+        </div>
+        <div class="control-elements">
+          <button class="first-pic" id="first-pic">Начало</button>
+          <input class="input-number-page" type="number" min="1">
+          <button class="confirm-page" id="confirm-page">Выбрать</button>
+        </div>
       </div>
     </section>
     <footer></footer>
