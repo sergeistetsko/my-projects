@@ -6,6 +6,7 @@ const slider = {
   slideImage: document.getElementById('slide-img'),
   startButton: document.getElementById('first-pic'),
   confirmPage: document.getElementById('confirm-page'),
+  selectChapter: document.getElementById('select'),
   start: function () {
     const that = this
     this.showPreviousButton.addEventListener('click', function (e) {
@@ -20,35 +21,10 @@ const slider = {
     this.confirmPage.addEventListener('click', function (e) {
       that.onConfirmPage(e)
     })
-    this.imagesUrls.push('img/part1/0001.jpg')
-    this.imagesUrls.push('img/part1/0002.jpg')
-    this.imagesUrls.push('img/part1/0003.jpg')
-    this.imagesUrls.push('img/part1/0004.jpg')
-    this.imagesUrls.push('img/part1/0005.jpg')
-    this.imagesUrls.push('img/part1/0006.jpg')
-    this.imagesUrls.push('img/part1/0007.jpg')
-    this.imagesUrls.push('img/part1/0008.jpg')
-    this.imagesUrls.push('img/part1/0009.jpg')
-    this.imagesUrls.push('img/part1/0010.jpg')
-    this.imagesUrls.push('img/part1/0011.jpg')
-    this.imagesUrls.push('img/part1/0012.jpg')
-    this.imagesUrls.push('img/part1/0013.jpg')
-    this.imagesUrls.push('img/part1/0014.jpg')
-    this.imagesUrls.push('img/part1/0015.jpg')
-    this.imagesUrls.push('img/part1/0016.jpg')
-    this.imagesUrls.push('img/part1/0017.jpg')
-    this.imagesUrls.push('img/part1/0018.jpg')
-    this.imagesUrls.push('img/part1/0019.jpg')
-    this.imagesUrls.push('img/part1/0020.jpg')
-    this.imagesUrls.push('img/part1/0021.jpg')
-    this.imagesUrls.push('img/part1/0022.jpg')
-    this.imagesUrls.push('img/part1/0023.jpg')
-    this.imagesUrls.push('img/part1/0024.jpg')
-    this.imagesUrls.push('img/part1/0025.jpg')
-    this.imagesUrls.push('img/part1/0026.jpg')
-    this.imagesUrls.push('img/part1/0027.jpg')
-    this.imagesUrls.push('img/part1/0028.jpg')
-
+    this.selectChapter.addEventListener('change', function (e) {
+      that.onSelectChapterChange(e)
+    })
+    this.loadImages('part1')
     this.slideImage.src = this.imagesUrls[this.currentImageIndex]
     this.showPreviousButton.disabled = true
   },
@@ -72,6 +48,29 @@ const slider = {
       this.updateImage()
     } else {
       alert('Неверный номер страницы')
+    }
+  },
+  onSelectChapterChange: function (e) {
+    const selectedValue = e.target.value
+    this.loadImages(`part${selectedValue}`)
+    this.currentImageIndex = 0
+    this.updateImage()
+  },
+  loadImages: async function (part) {
+    this.imagesUrls = []
+    const totalImages = 60 // Общее количество изображений
+    for (let i = 1; i <= totalImages; i++) {
+      const imageNumber = String(i).padStart(4, '0') // Форматируем номер изображения с ведущими нулями
+      const imageUrl = `img/${part}/${imageNumber}.jpg`
+
+      try {
+        const response = await fetch(imageUrl, { method: 'HEAD' })
+        if (response.ok) {
+          this.imagesUrls.push(imageUrl)
+        }
+      } catch (error) {
+        console.error(`Image not found: ${imageUrl}`)
+      }
     }
   },
   updateImage: function () {
