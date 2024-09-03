@@ -30,9 +30,6 @@
             <li>
               <a href="#"><span>Аниме</span></a>
             </li>
-            <!-- <li>
-              <a href="#"><span>Контакты</span></a>
-            </li> -->
           </ul>
         </nav>
       </div>
@@ -40,11 +37,14 @@
     <h1 hidden>Магическая битва</h1>
     <section>
       <div class="slider">
-        <h2 id="manga"><a href="#start-page"><span>Манга - Магическая битва</span></a></h2>
+        <h2 id="manga">
+          <a href="#start-page"><span>Манга - Магическая битва</span></a>
+        </h2>
         <div class="slider-elements">
-          <button id="show-previous-btn">&lt;</button>
-          <img id="slide-img" src="your-image-url.jpg" alt="manga-pic" />
-          <button id="show-next-btn">&gt;</button>
+
+          <img id="slide-img-1" src="" alt="Изображение 1" />
+          <img id="slide-img-2" src="" alt="Изображение 2" />
+
         </div>
         <div class="control-elements">
           <select name="select" id="select">
@@ -53,8 +53,15 @@
             <option value="3">Глава 3</option>
           </select>
           <button class="first-pic" id="first-pic">Начало</button>
-          <input class="input-number-page" type="number" min="1" placeholder="Выбери страницу"/>
+          <input
+            class="input-number-page"
+            type="number"
+            min="1"
+            placeholder="Выбери страницу"
+          />
           <button class="confirm-page" id="confirm-page">Выбрать</button>
+          <button id="show-previous-btn">&lt;</button>
+          <button id="show-next-btn">&gt;</button>
         </div>
       </div>
     </section>

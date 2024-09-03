@@ -3,7 +3,8 @@ const slider = {
   currentImageIndex: 0,
   showPreviousButton: document.getElementById('show-previous-btn'),
   showNextButton: document.getElementById('show-next-btn'),
-  slideImage: document.getElementById('slide-img'),
+  slideImage1: document.getElementById('slide-img-1'),
+  slideImage2: document.getElementById('slide-img-2'),
   startButton: document.getElementById('first-pic'),
   confirmPage: document.getElementById('confirm-page'),
   selectChapter: document.getElementById('select'),
@@ -25,16 +26,16 @@ const slider = {
       that.onSelectChapterChange(e)
     })
     this.loadImages('part1').then(() => {
-      this.slideImage.src = this.imagesUrls[this.currentImageIndex]
+      this.updateImage()
       this.showPreviousButton.disabled = true
     })
   },
   onShowPreviousButtonClick: function () {
-    this.currentImageIndex--
+    this.currentImageIndex -= 2
     this.updateImage()
   },
   onShowNextButtonClick: function () {
-    this.currentImageIndex++
+    this.currentImageIndex += 2
     this.updateImage()
   },
   onStartButton: function () {
@@ -53,9 +54,10 @@ const slider = {
   },
   onSelectChapterChange: function (e) {
     const selectedValue = e.target.value
-    this.loadImages(`part${selectedValue}`)
-    this.currentImageIndex = 0
-    this.updateImage()
+    this.loadImages(`part${selectedValue}`).then(() => {
+      this.currentImageIndex = 0
+      this.updateImage()
+    })
   },
   loadImages: async function (part) {
     this.imagesUrls = []
@@ -70,19 +72,28 @@ const slider = {
           this.imagesUrls.push(imageUrl)
         }
       } catch (error) {
-        console.error(`Image not found: ${imageUrl}`)
+        console.error(`Изображение не найдено: ${imageUrl}`)
       }
     }
   },
   updateImage: function () {
-    this.slideImage.style.opacity = 0
+    if (this.imagesUrls.length === 0) {
+      this.slideImage1.src = ''
+      this.slideImage2.src = ''
+      return
+    }
+
+    this.slideImage1.style.opacity = 0
+    this.slideImage2.style.opacity = 0
     setTimeout(() => {
-      this.slideImage.src = this.imagesUrls[this.currentImageIndex]
-      this.slideImage.style.opacity = 1
+      this.slideImage1.src = this.imagesUrls[this.currentImageIndex] || ''
+      this.slideImage2.src = this.imagesUrls[this.currentImageIndex + 1] || ''
+      this.slideImage1.style.opacity = 1
+      this.slideImage2.style.opacity = 1
     }, 500)
     this.showPreviousButton.disabled = this.currentImageIndex === 0
     this.showNextButton.disabled =
-      this.currentImageIndex === this.imagesUrls.length - 1
+      this.currentImageIndex >= this.imagesUrls.length - 2
   },
 }
 
