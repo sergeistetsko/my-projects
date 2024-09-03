@@ -24,9 +24,10 @@ const slider = {
     this.selectChapter.addEventListener('change', function (e) {
       that.onSelectChapterChange(e)
     })
-    this.loadImages('part1')
-    this.slideImage.src = this.imagesUrls[this.currentImageIndex]
-    this.showPreviousButton.disabled = true
+    this.loadImages('part1').then(() => {
+      this.slideImage.src = this.imagesUrls[this.currentImageIndex]
+      this.showPreviousButton.disabled = true
+    })
   },
   onShowPreviousButtonClick: function () {
     this.currentImageIndex--
