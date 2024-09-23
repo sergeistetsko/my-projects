@@ -2,288 +2,194 @@
 const playlists = [
   {
     id: 1,
-    title: 'Hip-Hop Hits',
-    coverImageSource: './img/cardImage/image1.jpeg',
-    tracksCount: 4,
-    tracks: [
+    cardsTitle: 'Education Videos',
+    videoCards: [
       {
         id: 1,
-        artist: 'Eminem',
-        title: 'Rap God',
-        isHot: true,
-        trackFileSource: './audio/Eminem - Rap God.mp3',
-        imageSource: './img/cardImage/trackList/track1.jpeg',
+        author: 'It-Kamasutra',
+        title: 'JavaScript',
+        description:
+          'Way of the Samurai, Browser, first program, foreign language learning simulator',
+        publishDate: 'now',
+        isLiveStream: true,
+        videoFileSource: './video/video1.mp4',
+        videoImageSource: './img/cardImage/video1.png',
       },
       {
         id: 2,
-        artist: '50 cent',
-        title: 'In da Club',
-        isHot: false,
-        trackFileSource: './audio/50cent - In da club.mp3',
-        imageSource: './img/cardImage/trackList/track2.jpeg',
+        author: 'It-Kamasutra',
+        title: 'JavaScript',
+        description: 'The Way of the Samurai, installing VS code, code editor',
+        publishDate: '1 week ago',
+        isLiveStream: false,
+        videoFileSource: './video/video2.mp4',
+        videoImageSource: './img/cardImage/video2.png',
       },
       {
         id: 3,
-        artist: 'DMX',
-        title: "X Gon' Give It To Ya",
-        isHot: false,
-        trackFileSource: "./audio/DMX - X Gon' Give It To Ya.mp3",
-        imageSource: './img/cardImage/trackList/track3.jpeg',
-      },
-      {
-        id: 4,
-        artist: 'Eminem',
-        title: "You Don't Know (feat. 50 cent, Lloyd Banks and Cashis)",
-        isHot: false,
-        trackFileSource:
-          "./audio/Eminem - You Don't Know (feat. 50 cent, Lloyd Banks and Cashis).mp3",
-        imageSource: './img/cardImage/trackList/track4.jpeg',
+        author: 'It-Kamasutra',
+        title: 'Back-end - The Samurai Way',
+        description: 'Reboot - express + typescript + nodemon',
+        publishDate: '2 weeks ago',
+        isLiveStream: false,
+        videoFileSource: './video/video3.mp4',
+        videoImageSource: './img/cardImage/video3.png',
       },
     ],
   },
   {
-    id: 2,
-    title: 'Rap Hits 1990s',
-    coverImageSource: './img/cardImage/image2.jpeg',
-    tracksCount: 4,
-    tracks: [
+    id: 1,
+    cardsTitle: 'Online training sports',
+    videoCards: [
+      {
+        id: 4,
+        author: 'Pamela Reif',
+        title: '20 MIN FULL BODY WORKOUT',
+        description: 'Beginner Version // No Equipment I Pamela Reif',
+        isLiveStream: false,
+        publishDate: '12 hours ago',
+        videoFileSource: './video/video4.mp4',
+        videoImageSource: './img/cardImage/video4.png',
+      },
       {
         id: 5,
-        artist: 'Public Enemy',
-        title: 'Fight The Power',
-        isHot: true,
-        trackFileSource: './audio/Public Enemy - Fight The Power.mp3',
-        imageSource: './img/cardImage/trackList/track5.jpeg',
+        author: 'Seva Prihodko',
+        title: 'Stretching Yoga',
+        description: 'Sports training online — filming and editing',
+        isLiveStream: false,
+        publishDate: '1 week ago',
+        videoFileSource: './video/video6.mp4',
+        videoImageSource: './img/cardImage/video6.png',
       },
       {
         id: 6,
-        artist: 'Vanila Ice',
-        title: 'Ice Ice Baby',
-        isHot: false,
-        trackFileSource: './audio/Vanila Ice - Ice Baby.mp3',
-        imageSource: './img/cardImage/trackList/track6.jpeg',
-      },
-      {
-        id: 7,
-        artist: 'Mc Hammer',
-        title: "You Can't Touch This",
-        isHot: true,
-        trackFileSource: "./audio/Mc Hammer - You Can't Touch This.mp3",
-        imageSource: './img/cardImage/trackList/track7.jpeg',
-      },
-      {
-        id: 8,
-        artist: 'Brand Nubian',
-        title: 'Brand Nubian',
-        isHot: false,
-        trackFileSource: './audio/Brand Nubian - Brand Nubian.mp3',
-        imageSource: './img/cardImage/trackList/track8.jpeg',
+        author: 'BullyJuice',
+        title: 'PERFECT 20 MIN FULL BODY WORKOUT FOR BEGINNERS',
+        description: '(No Equipment)',
+        isLiveStream: false,
+        publishDate: '2 weeks ago',
+        videoFileSource: './video/video5.mp4',
+        videoImageSource: './img/cardImage/video5.png',
       },
     ],
   },
 ]
 
 // RENDER
-const TrackTopLineComponent = (inputData) => {
-  const { isHot, artist, title } = inputData
+const VideoComponent = (inputData) => {
+  const { videoImageSource } = inputData
 
-  const container = document.createElement('div')
+  const element = document.createElement('video')
 
-  container.classList.add('track-top-line')
-
-  if (isHot) {
-    const trackHotImg = document.createElement('img')
-
-    trackHotImg.classList.add('track-status')
-    trackHotImg.src = './img/icons/hot.svg'
-
-    container.append(trackHotImg)
-  }
-
-  const trackInfo = document.createElement('div')
-  trackInfo.classList.add('track-info')
-
-  const trackName = document.createElement('span')
-
-  trackName.classList.add('track-name')
-  trackName.innerText = artist + ' - '
-  
-  const trackTitle = document.createElement('span')
-
-  trackTitle.classList.add('track-title')
-  trackTitle.innerText = title
-
-  trackInfo.append(trackName, trackTitle)
-
-  container.append(trackInfo)
-
-  return container
-}
-
-const TrackInfoComponent = (inputData) => {
-  const container = document.createElement('div')
-  container.classList.add('track-details')
-
-  container.append(TrackTopLineComponent(inputData), TrackAudioComponent(inputData))
-
-  return container
-}
-
-const TrackImageComponent = (inputData) => {
-  const element = document.createElement('img')
-  element.classList.add('track-cover-image')
-  element.src = inputData.imageSource
-
-  return element
-}
-
-const TrackAudioComponent = (inputData) => {
-  const element = document.createElement('audio')
-
-  element.src = inputData.trackFileSource
+  element.src = inputData.videoFileSource
   element.controls = true
-
-  return element
-}
-
-const TrackComponent = (inputData) => {
-  const element = document.createElement('li')
-  element.classList.add('track-element')
-
-  const trackImageElement = TrackImageComponent(inputData)
-  const trackInfoElement = TrackInfoComponent(inputData)
-
-  element.append(trackImageElement, trackInfoElement)
+  element.muted = true
+  element.poster = videoImageSource
 
   return element
 }
 
 // =====================================================
 
-const TracksListComponent = (inputData) => {
-  const { tracks } = inputData
-
-  const container = document.createElement('ul')
-  container.classList.add('list')
-
-  for (let j = 0; j < tracks.length; j++) {
-    const track = tracks[j]
-    const trackElement = TrackComponent(track)
-    container.append(trackElement)
-  }
-
-  return container
-}
-
-// =====================================================
-
-const TracksWrapperComponent = (inputData) => {
-  const container = document.createElement('div')
-  container.classList.add('tracklist')
-
-  const tracklist = TracksListComponent(inputData)
-  container.append(tracklist)
-
-  return container
-}
-
-// =====================================================
-
-const TracksInfoImageComponent = (inputData) => {
-  const { coverImageSource } = inputData
-
-  const element = document.createElement('img')
-
-  element.classList.add('playlist-cover-image')
-  element.src = coverImageSource
-
-  return element
-}
-
-// =====================================================
-
-const TracksInfoSubTitleComponent = () => {
-  const title = document.createElement('span')
-  title.classList.add('sub-title')
-  title.innerText = 'Playlist'
-
-  return title
-}
-
-const TracksInfoTitleComponent = (inputData) => {
+const VideoTitleComponent = (inputData) => {
   const { title } = inputData
 
-  const titleElement = document.createElement('h2')
+  const titleCard = document.createElement('span')
+  titleCard.classList.add('video-title')
+  titleCard.innerText = title
 
-  titleElement.classList.add('title')
-  titleElement.innerText = title
-
-  return titleElement
-}
-
-const TracksInfoCountComponent = (inputData) => {
-  const { tracksCount } = inputData
-
-  const tracksCountElement = document.createElement('span')
-  tracksCountElement.classList.add('tracks-count')
-  tracksCountElement.innerText = tracksCount + ' tracks, 12m 13s'
-
-  return tracksCountElement
-}
-
-const TracksInfoTopArtistsComponent = (inputData) => {
-  const { tracks } = inputData
-
-  const tracksTopArtistsElement = document.createElement('span')
-  tracksTopArtistsElement.classList.add('sub-title')
-  tracksTopArtistsElement.innerText = `${tracks[0].artist}, ${tracks[1].artist}, ${tracks[2].artist}`
-
-  return tracksTopArtistsElement
-}
-
-const TracksInfoOthersComponent = () => {
-  const tracksOthersElement = document.createElement('span')
-  tracksOthersElement.innerText = ` and others`
-  tracksOthersElement.classList.add('other-artists')
-
-  return tracksOthersElement
+  return titleCard
 }
 
 // =====================================================
 
-const TracksInfoWrapperComponent = (inputData) => {
+const VideoDescriptionComponent = (inputData) => {
+  const { description } = inputData
+
+  const descriptionCard = document.createElement('span')
+  descriptionCard.classList.add('sub-title')
+  descriptionCard.innerText = description
+
+  return descriptionCard
+}
+
+// =====================================================
+
+const VideoAuthorComponent = (inputData) => {
+  const { author } = inputData
+
+  const authorCard = document.createElement('span')
+  authorCard.classList.add('author')
+  authorCard.innerText = author
+
+  return authorCard
+}
+
+// =====================================================
+
+const VideoPublishDateComponent = (inputData) => {
+  const { publishDate, isLiveStream } = inputData
+
+  const publishDateCard = document.createElement('span')
+
+  if (isLiveStream) {
+    publishDateCard.classList.add('publish-date')
+    publishDateCard.innerText = ' • Live Stream'
+  } else {
+    publishDateCard.classList.add('publish-date')
+    publishDateCard.innerText = publishDate
+  }
+
+  return publishDateCard
+}
+
+// =====================================================
+
+const VideoCardComponent = (inputData) => {
   const wrapper = document.createElement('div')
-  wrapper.classList.add('playlist-wrapper')
-  
-  const subTitleElement = TracksInfoSubTitleComponent(inputData)
-  const titleElement = TracksInfoTitleComponent(inputData)
-  const countElement = TracksInfoCountComponent(inputData)
-  const topArtistsElement = TracksInfoTopArtistsComponent(inputData)
-  const othersElement = TracksInfoOthersComponent()
+  wrapper.classList.add('card-wrapper')
+
+  const cardVideoElement = VideoComponent(inputData)
+  const cardTitleElement = VideoTitleComponent(inputData)
+  const cardDescriptionElement = VideoDescriptionComponent(inputData)
+  const cardAuthorElement = VideoAuthorComponent(inputData)
+  const publishDateElement = VideoPublishDateComponent(inputData)
 
   wrapper.append(
-    subTitleElement,
-    titleElement,
-    countElement,
-    topArtistsElement,
-    othersElement
+    cardVideoElement,
+    cardTitleElement,
+    cardDescriptionElement,
+    cardAuthorElement,
+    publishDateElement
   )
+
+  return wrapper
+}
+// ====================================================
+
+const VideoCardsWrapperComponent = (inputData) => {
+  const { videoCards } = inputData
+
+  const wrapper = document.createElement('ul')
+  wrapper.classList.add('playlist-wrapper')
+
+  for (let j = 0; j < videoCards.length; j++) {
+    const videoCard = videoCards[j]
+    const videoCardElement = VideoCardComponent(videoCard)
+    wrapper.append(videoCardElement)
+  }
 
   return wrapper
 }
 
 // ====================================================
 
-const TracksInfoComponent = (inputData) => {
-  const container = document.createElement('div')
-  container.classList.add('playlist-info')
+const VideoCardsTitleComponent = (inputData) => {
+  const element = document.createElement('h2')
+  element.innerText = inputData.cardsTitle
+  element.classList.add('playlist-title')
 
-  const imgElement = TracksInfoImageComponent(inputData)
-  const wrapper = TracksInfoWrapperComponent(inputData)
-
-  container.append(imgElement, wrapper)
-
-  return container
+  return element
 }
 
 // ====================================================
@@ -292,10 +198,10 @@ const PlaylistComponent = (inputData) => {
   const container = document.createElement('article')
   container.classList.add('playlist')
 
-  const tracksInfoElement = TracksInfoComponent(inputData)
-  const tracksListElement = TracksListComponent(inputData)
+  const videoCardsInfoElement = VideoCardsTitleComponent(inputData)
+  const videoCardsWrapperElement = VideoCardsWrapperComponent(inputData)
 
-  container.append(tracksInfoElement, tracksListElement)
+  container.append(videoCardsInfoElement, videoCardsWrapperElement)
 
   return container
 }
@@ -337,7 +243,7 @@ const HeaderComponent = () => {
   headerImage.src = './img/logo/logo.svg'
 
   const headerLogo = document.createElement('div')
-  headerLogo.innerText = 'InPlayer'
+  headerLogo.innerText = 'InTube'
   headerLogo.classList.add('logo-name')
 
   headerContainer.append(headerImage, headerLogo)

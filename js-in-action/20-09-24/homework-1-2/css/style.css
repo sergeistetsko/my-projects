@@ -5,11 +5,7 @@
   background: #111;
   opacity: 0.1;
 }
-.title {
-  color: #fff;
-  font-size: 30px;
-  font-weight: 700;
-}
+
 /* Header //======================================================================================================================================================== */
 header {
   background: rgba(26, 26, 26, 0.8);
@@ -28,7 +24,7 @@ header {
 }
 
 .logo-name {
-  color: #f6bd41;
+  color: #ff2c91;
   font-size: 18px;
   font-weight: 700;
   margin-left: 8px;
@@ -38,7 +34,7 @@ main {
   min-height: 100%;
   max-width: 1182px;
   padding: 0 15px 25px;
-  margin: 24px auto 0;
+  margin: 0 auto;
 }
 
 h1 {
@@ -49,19 +45,15 @@ h1 {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  min-width: 100%;
 }
 /* Playlist //======================================================================================================================================================== */
+
 .playlist {
   border-radius: 4px;
   background: #1c1c1c;
-  padding: 24px 36px;
-  min-width: 570px;
-}
-
-@media (max-width: 550px) {
-  .playlist {
-    padding: 20px 24px;
-  }
+  padding: 20px;
+  width: 100%;
 }
 
 .playlist-info {
@@ -74,117 +66,47 @@ h1 {
 .playlist-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-@media (max-width: 550px) {
-  .playlist-info {
-    flex-direction: column;
-    row-gap: 15px;
-  }
+.title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
 }
 
-.playlist-cover-image {
-  max-width: 170px;
-  max-height: 168px;
-  object-fit: cover;
-  border-radius: 4px;
+.playlist-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
-@media (max-width: 550px) {
-  .playlist-cover-image {
-    align-self: center;
-  }
+.playlist-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 15px;
 }
 
-.tracks-count,
-.sub-title,
-.other-artists {
-  color: #8a8a8a;
+.card-wrapper {
+  width: calc(100% / 3 - 15px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.video-title,
+.sub-title {
+  color: #fff;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 24px;
 }
 
-.tracks-count {
-  display: block;
-}
-
-.sub-title {
-  color: #fff;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  row-gap: 24px;
-}
-
-.track-element {
-  display: flex;
-  column-gap: 12px;
-}
-
-@media (max-width: 550px) {
-  .track-element {
-    flex-direction: column;
-    row-gap: 12px;
-  }
-}
-
-.track-details {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  row-gap: 8px;
-}
-
-.track-top-line {
-  display: flex;
-}
-
-.track-cover-image {
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.track-status {
-  width: 12px;
-  height: 12px;
-  object-fit: cover;
-  margin-right: 6px;
-}
-
-.track-name {
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.track-title {
+.author,
+.publish-date {
   color: #8a8a8a;
-  font-size: 12px;
-  font-weight: 500;
-  margin-left: 5px;
-}
-
-.track-info {
-  display: flex;
-  flex: 1 1 auto;
-  justify-content: flex-start;
-}
-
-audio {
-  height: 24px;
-  width: 100%;
-  border: none;
-  outline: none;
-  filter: invert(100%);
-}
-
-audio::-webkit-media-controls-enclosure {
-  border-radius: 4px;
-  color: #fff;
 }
