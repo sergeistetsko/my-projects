@@ -17,7 +17,7 @@ header {
   display: flex;
   justify-content: flex-start;
   max-width: 1182px;
-  padding: 0 15px;
+  padding: 0 40px;
   margin: 0 auto;
   align-items: center;
   height: 100%;
@@ -33,7 +33,7 @@ header {
 main {
   min-height: 100%;
   max-width: 1182px;
-  padding: 0 15px 25px;
+  padding: 30px 40px 25px;
   margin: 0 auto;
 }
 
@@ -43,7 +43,7 @@ h1 {
 
 .playlists {
   display: flex;
-  gap: 12px;
+  gap: 20px;
   flex-wrap: wrap;
   min-width: 100%;
 }
@@ -52,7 +52,7 @@ h1 {
 .playlist {
   border-radius: 4px;
   background: #1c1c1c;
-  padding: 20px;
+  padding: 25px 20px 35px;
   width: 100%;
 }
 
@@ -98,15 +98,30 @@ h1 {
   justify-content: space-between;
 }
 
+video {
+  margin-bottom: 5px;
+}
+
 .video-title,
 .sub-title {
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+  margin-bottom: 12px;
+}
+
+.video-title {
+  margin-bottom: 0;
 }
 
 .author,
 .publish-date {
   color: #8a8a8a;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.publish-date-live {
+  color: #ff2c91;
 }

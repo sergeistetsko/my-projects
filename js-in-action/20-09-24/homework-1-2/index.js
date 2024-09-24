@@ -133,7 +133,7 @@ const VideoPublishDateComponent = (inputData) => {
   const publishDateCard = document.createElement('span')
 
   if (isLiveStream) {
-    publishDateCard.classList.add('publish-date')
+    publishDateCard.classList.add('publish-date-live')
     publishDateCard.innerText = ' • Live Stream'
   } else {
     publishDateCard.classList.add('publish-date')
@@ -225,7 +225,7 @@ const PlaylistsComponent = (inputData) => {
 
 const TitleComponent = () => {
   const header = document.createElement('h1')
-  header.innerText = 'My playlists'
+  header.innerText = 'My Playlists'
   header.classList.add('title')
 
   return header
